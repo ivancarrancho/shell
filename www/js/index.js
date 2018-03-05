@@ -46,9 +46,37 @@ app.initialize();
 function calculate() {
     data = document.getElementsByClassName("shell")[0].value;
     document.getElementById("shell-result-data").innerHTML = data;
+    var regex = /([\+\-\*\/])/;
 
-    var n = data.search(/^\\d+(\\.\\d+)*|[\\(\\)\\+\\-\\*\\/]$/);
+    var a = data.split(regex);
+    var result = []
+    var x = 0
 
-    document.getElementById("answer").innerHTML = n;
-
+    for (var i = 0; i < a.length; i += 1) {
+        if (parseInt(a[i])) {
+            result[x] = parseInt(a[i]);
+            x++;
+        }
+    }
+    console.log(result);
+    for (var i = 0; i < a.length; i += 1) {
+        if (a[i] == '+') {
+            result[i-1] = parseInt(a[i-1]) + parseInt(a[i+1]);
+            result = result.splice(a[1,1]);
+        }
+        else if (a[i] == '-') {
+            result[i-1] = parseInt(a[i-1]) - parseInt(a[i+1]);
+            result = result.splice(a[1,1]);
+        }
+        else if (a[i] == '*') {
+            result[i-1] = parseInt(a[i-1]) * parseInt(a[i+1]);
+            result = result.splice(a[1,1]);
+        }
+        else if (a[i] == '/') {
+            result[i-1] = parseInt(a[i-1]) / parseInt(a[i+1]);
+            result = result.splice(a[1,1]);
+        }
+    }
+    console.log(result)
+        document.getElementById("answer").innerHTML = a[i];
 }
