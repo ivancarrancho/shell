@@ -78,5 +78,5 @@ function calculate() {
         }
     }
     console.log(result)
-        document.getElementById("answer").innerHTML = a[i];
+        document.getElementById("answer").innerHTML = result;
 }
