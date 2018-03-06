@@ -23,15 +23,8 @@
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-
-    background-image:-webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0.35, #ffffff),
-        color-stop(0.9, #060101)
-    );
+    -webkit-user-select: none;
+    background: linear-gradient(white, black);                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
@@ -124,7 +117,7 @@ h1 {
 
 .shell-box .shell-result {
     width: 100%;
-    height: 200px;
+    height: 100px;
     background-color: white;
 }
 
@@ -136,4 +129,9 @@ h1 {
     margin: 0 auto;
     display: block;
     width: 60px;
+}
+
+#answer {
+    text-align: right;
+    width: 90%;
 }

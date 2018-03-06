@@ -46,11 +46,11 @@ app.initialize();
 function calculate() {
     data = document.getElementsByClassName("shell")[0].value;
     document.getElementById("shell-result-data").innerHTML = data;
-    var regex = /([\+\-\*\/])/;
+    var regex = /([\+\-\*\/\^])/;
 
     var a = data.split(regex);
-    var result = []
-    var x = 0
+    var result = [];
+    var x = 0;
 
     for (var i = 0; i < a.length; i += 1) {
         if (parseInt(a[i])) {
@@ -58,25 +58,30 @@ function calculate() {
             x++;
         }
     }
-    console.log(result);
-    for (var i = 0; i < a.length; i += 1) {
+
+    var last_result = parseInt(result[0])
+    x = 1;
+    for (var i = 0; i < a.length; i++) {
         if (a[i] == '+') {
-            result[i-1] = parseInt(a[i-1]) + parseInt(a[i+1]);
-            result = result.splice(a[1,1]);
+            last_result = last_result + parseInt(result[x]);
+            x++;
         }
         else if (a[i] == '-') {
-            result[i-1] = parseInt(a[i-1]) - parseInt(a[i+1]);
-            result = result.splice(a[1,1]);
+            last_result = last_result - parseInt(result[x]);
+            x++;
         }
         else if (a[i] == '*') {
-            result[i-1] = parseInt(a[i-1]) * parseInt(a[i+1]);
-            result = result.splice(a[1,1]);
+            last_result = last_result * parseInt(result[x]);
+            x++;
         }
         else if (a[i] == '/') {
-            result[i-1] = parseInt(a[i-1]) / parseInt(a[i+1]);
-            result = result.splice(a[1,1]);
+            last_result = last_result / parseInt(result[x]);
+            x++;
+        }
+        else if (a[i] == '^') {
+            last_result = Math.pow(last_result, parseInt(result[i]));
+            x++;
         }
     }
-    console.log(result)
-        document.getElementById("answer").innerHTML = result;
+    document.getElementById("answer").innerHTML = last_result;
 }

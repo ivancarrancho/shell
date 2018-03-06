@@ -46,9 +46,42 @@ app.initialize();
 function calculate() {
     data = document.getElementsByClassName("shell")[0].value;
     document.getElementById("shell-result-data").innerHTML = data;
+    var regex = /([\+\-\*\/\^])/;
 
-    var n = data.search(/^\\d+(\\.\\d+)*|[\\(\\)\\+\\-\\*\\/]$/);
+    var a = data.split(regex);
+    var result = [];
+    var x = 0;
 
-    document.getElementById("answer").innerHTML = n;
+    for (var i = 0; i < a.length; i += 1) {
+        if (parseInt(a[i])) {
+            result[x] = parseInt(a[i]);
+            x++;
+        }
+    }
 
+    var last_result = parseInt(result[0])
+    x = 1;
+    for (var i = 0; i < a.length; i++) {
+        if (a[i] == '+') {
+            last_result = last_result + parseInt(result[x]);
+            x++;
+        }
+        else if (a[i] == '-') {
+            last_result = last_result - parseInt(result[x]);
+            x++;
+        }
+        else if (a[i] == '*') {
+            last_result = last_result * parseInt(result[x]);
+            x++;
+        }
+        else if (a[i] == '/') {
+            last_result = last_result / parseInt(result[x]);
+            x++;
+        }
+        else if (a[i] == '^') {
+            last_result = Math.pow(last_result, parseInt(result[i]));
+            x++;
+        }
+    }
+    document.getElementById("answer").innerHTML = last_result;
 }
