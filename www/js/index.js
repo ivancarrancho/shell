@@ -24,6 +24,20 @@ var app = {
 };
 
 app.initialize();
+words = [
+    'calculate',
+    'cls',
+    'exit',
+    'shutdowm',
+    'date',
+]
+for (var i = 0; i < words.length && !found; i++) {
+  if (categories[i] === "specialword") {
+    break;
+  }
+}
+
+// new Date();
 
 function calculate() {
     data = document.getElementsByClassName("shell")[0].value;
