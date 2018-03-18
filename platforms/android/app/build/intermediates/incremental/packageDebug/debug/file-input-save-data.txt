@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Mar 05 19:40:36 COT 2018
+#Mon Mar 05 20:06:51 COT 2018
 25.file=/Users/ivan/Documents/projects/shell-app/platforms/android/app/build/intermediates/res/debug/resources-debug.ap_/res/drawable-land-ldpi-v4/screen.png
 25.base=/Users/ivan/Documents/projects/shell-app/platforms/android/app/build/intermediates/res/debug/resources-debug.ap_
 22.set=ASSET
