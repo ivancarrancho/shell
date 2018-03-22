@@ -24,7 +24,6 @@ body {
     -webkit-touch-callout: none;
     -webkit-text-size-adjust: none;
     -webkit-user-select: none;
-    background: linear-gradient(black, white);
     background-attachment:fixed;
     font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
     font-size:12px;
@@ -107,15 +106,17 @@ h1 {
 
 .shell-box .shell {
     border: none;
-    padding-top: 20px;
+    padding: 30px 1px;
     width: 100%;
     outline: none;
     background-color: black;
-    color:#4fe259;
+    color: #4fe259;
+    margin-bottom: -20px;
 }
 
 .shell-box input {
-    font-size: 15px;
+    font-size: 35px;
+    font-family: inherit;
 }
 
 .shell-box .shell-result {
@@ -139,4 +140,13 @@ h1 {
 #answer {
     text-align: right;
     width: 90%;
+    font-size: 13px;
+}
+
+ul {
+    text-align: left;
+}
+
+li {
+    list-style: none;
 }

@@ -140,3 +140,11 @@ h1 {
     text-align: right;
     width: 90%;
 }
+
+ul {
+    text-align: left;
+}
+
+li {
+    list-style: none;
+}
